@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-21u*#)lradw$xrx%%enu^a__v*jkub#ihrtwfw0rfy=neu@b!t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'Shop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'customer',
-        'HOST': 'localhost',
-        'USER': 'kali',
+        'NAME': 'Customer',
+        'HOST': 'mysql-container',
+        'USER': 'root',
         'PASSWORD': 'kali'
     }
 }
@@ -119,7 +119,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-INTERNAL_IPS = ['127.0.0.1']
+INTERNAL_IPS = ['*']
 
 REST_FRAMEWORK = {
     'COERCE_DECIMAL_TO_STRING': False,
