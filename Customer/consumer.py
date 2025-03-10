@@ -28,7 +28,7 @@ def callback(ch, method, properties, body):
 
 def consume_from_rabbitmq():
     connection = pika.BlockingConnection(pika.ConnectionParameters(
-        host='localhost',
+        host='rabbit-container',
         credentials=pika.PlainCredentials(RabbitUser, RabbitPassword),
     ))
     channel = connection.channel()
