@@ -121,6 +121,13 @@ USE_TZ = True
 
 INTERNAL_IPS = ['172.17.0.1']
 
+
+import socket
+hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+INTERNAL_IPS += [".".join(ip.split(".")[:-1] + ["1"]) for ip in ips]
+
+
+
 REST_FRAMEWORK = {
     'COERCE_DECIMAL_TO_STRING': False,
 }
