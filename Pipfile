@@ -12,5 +12,6 @@ drf-nested-routers = "*"
 pulsar-client = "*"
 pika = "*"
 pika-stubs = "*"
+djangorestframework-simplejwt = "*"
 
-
+[dev-packages]
