@@ -11,9 +11,10 @@ logging.basicConfig(level=logging.INFO)
 
 def callback(ch, method, properties, body):
     data = json.loads(body)
+    logging.info("Received %r" % data)
     try:
 
-        (customer, create) = Client.objects.get_or_create(user_id=data.get("user_id"))
+        (customer, create) = Client.objects.get_or_create(user_id=data.get("user_id"), email=data.get("email"))
         if create:
             logging.info(f"Created new customer with id :  {customer.user_id}")
         else:

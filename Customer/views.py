@@ -1,13 +1,17 @@
 from rest_framework import viewsets
+from rest_framework.authentication import TokenAuthentication
+from .permissions import IsAdminUser
+from rest_framework.permissions import IsAuthenticated
+
 from .models import Client, ClientAddress
-from Customer.serializers import ClientSerializer, ClientAddressSerializer
+from .serializers import ClientSerializer, ClientAddressSerializer
 
 
-# Create your views here.
 class ClientViewSet(viewsets.ModelViewSet):
     queryset = Client.objects.all()
     serializer_class = ClientSerializer
     lookup_field = 'user_id'
+    # permission_classes = (IsAuthenticated, IsAdminUser )
 
 
 class ClientAddressViewSet(viewsets.ModelViewSet):
